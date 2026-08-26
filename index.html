@@ -54,7 +54,7 @@
       <p>市场视觉需求 · AI指令快速生成</p>
     </div>
     <div class="vis-btn-group">
-      <div class="vis-btn-card" onclick="document.getElementById('vis-pdf-area').classList.toggle('hidden')">
+      <div class="vis-btn-card" onclick="showVisPdf()">
         <div class="vis-icon">📊</div>
         <div class="vis-text-wrap">
           <div class="vis-title">市场视觉需求</div>
@@ -74,8 +74,7 @@
     <div id="vis-pdf-area" class="hidden">
       <div class="card" style="padding:20px;">
         <h3 style="margin-bottom:12px;color:var(--primary);">📄 市场视觉需求文档</h3>
-        <p style="font-size:13px;color:var(--muted);margin-bottom:12px;">替换 assets/pdf/market-visual-demand.pdf 即可更新内容</p>
-        <iframe class="pdf-viewer" src="assets/pdf/market-visual-demand.pdf#view=FitH&zoom=120" style="height:80vh;min-height:600px;"></iframe>
+        <iframe class="pdf-viewer" src="" data-pdf="assets/pdf/market-visual-demand.pdf#view=FitH&zoom=120" style="height:80vh;min-height:600px;"></iframe>
       </div>
     </div>
   </section>

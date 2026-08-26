@@ -44,6 +44,22 @@ document.addEventListener('DOMContentLoaded', () => {
   loadNotices();
 });
 
+// ==================== 视觉优化PDF按需加载 ====================
+function showVisPdf() {
+  const area = document.getElementById('vis-pdf-area');
+  const iframe = area.querySelector('iframe');
+  if (area.classList.contains('hidden')) {
+    // 首次显示时才设置src，避免页面加载时预加载PDF
+    if (!iframe.src || iframe.src === '') {
+      iframe.src = iframe.dataset.pdf;
+    }
+    area.classList.remove('hidden');
+    area.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    area.classList.add('hidden');
+  }
+}
+
 // ==================== 类目指引 ====================
 async function loadCategoryGuide() {
   try {
