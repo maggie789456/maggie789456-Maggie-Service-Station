@@ -63,15 +63,20 @@ a:hover { color: var(--primary-hover); }
 .sidebar-nav li { margin: 2px 8px; }
 .sidebar-nav a {
   display: flex; align-items: center; gap: 10px;
-  padding: 12px 16px; border-radius: 8px; color: #b0b0b0;
-  font-size: 14px; font-weight: 500; transition: all .2s; cursor: pointer;
+  padding: 14px 16px; border-radius: 8px; color: #c0c0c0;
+  font-size: 16px; font-weight: 700; transition: all .25s ease; cursor: pointer;
 }
 .sidebar-nav a:hover { background: rgba(255,106,0,0.15); color: var(--primary); }
-.sidebar-nav a.active { background: var(--primary); color: #fff; box-shadow: 0 2px 10px rgba(255,106,0,0.35); }
-.sidebar-nav a .nav-icon { font-size: 18px; width: 24px; text-align: center; }
+.sidebar-nav a.active { background: var(--primary); color: #fff; box-shadow: 0 2px 10px rgba(255,106,0,0.35); font-size: 17px; font-weight: 800; }
+.sidebar-nav a .nav-icon { font-size: 20px; width: 24px; text-align: center; }
 .sidebar-nav .nav-sub { padding-left: 20px; font-size: 13px; }
 .sidebar-nav .nav-sub a { padding: 8px 16px; font-size: 13px; color: var(--muted); }
 .sidebar-nav .nav-sub a:hover { color: var(--primary); }
+/* 导航栏最近更新标记 */
+.sidebar-nav .nav-update-tag {
+  display: block; font-size: 10px; color: var(--primary); font-weight: 600;
+  padding: 0 0 8px 50px; line-height: 1.2; opacity: 0.8; margin-top: -4px;
+}
 
 /* ==================== 主内容区 ==================== */
 .main-content {
@@ -131,15 +136,17 @@ a:hover { color: var(--primary-hover); }
 .cat-sub-item .sub-path span { flex: 1; padding: 2px 0; }
 
 /* ==================== 视觉优化 ==================== */
-.vis-btn-group { display: flex; gap: 16px; flex-wrap: wrap; margin: 20px 0; }
+.vis-btn-group { display: flex; gap: 12px; flex-wrap: wrap; margin: 16px 0; }
 .vis-btn-card {
-  flex: 1; min-width: 280px; background: var(--card); border: 2px solid var(--border);
-  border-radius: 12px; padding: 24px; text-align: center; cursor: pointer; transition: all .2s;
+  flex: 1; min-width: 200px; max-width: 280px; background: var(--card); border: 2px solid var(--border);
+  border-radius: 10px; padding: 14px 16px; text-align: center; cursor: pointer; transition: all .2s;
+  display: flex; flex-direction: row; align-items: center; gap: 12px; justify-content: flex-start;
 }
 .vis-btn-card:hover { border-color: var(--primary); box-shadow: var(--shadow-hover); transform: translateY(-2px); }
-.vis-btn-card .vis-icon { font-size: 48px; margin-bottom: 12px; }
-.vis-btn-card .vis-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-.vis-btn-card .vis-desc { font-size: 13px; color: var(--muted); }
+.vis-btn-card .vis-icon { font-size: 28px; flex-shrink: 0; }
+.vis-btn-card .vis-text-wrap { text-align: left; }
+.vis-btn-card .vis-title { font-size: 14px; font-weight: 700; margin-bottom: 2px; color: var(--text); }
+.vis-btn-card .vis-desc { font-size: 11px; color: var(--muted); }
 
 /* ==================== 市场需求图片区 ==================== */
 .demand-notice {

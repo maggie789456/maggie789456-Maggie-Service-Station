@@ -26,7 +26,7 @@
     <li><a class="active" data-target="sec-category"><span class="nav-icon">📋</span> 类目指引</a></li>
     <li><a data-target="sec-visual"><span class="nav-icon">🖼️</span> 视觉优化</a></li>
     <li><a data-target="sec-title"><span class="nav-icon">📝</span> 标题优化</a></li>
-    <li><a data-target="sec-demand"><span class="nav-icon">🔥</span> 市场需求<span style="background:var(--primary);color:#fff;font-size:10px;padding:1px 6px;border-radius:10px;margin-left:6px;">高优</span></a></li>
+    <li><a data-target="sec-demand"><span class="nav-icon">🔥</span> 市场需求<span style="background:var(--primary);color:#fff;font-size:10px;padding:1px 6px;border-radius:10px;margin-left:6px;">高优</span></a><span class="nav-update-tag">最近更新</span></li>
     <li><a data-target="sec-plan"><span class="nav-icon">📚</span> 企划需求</a></li>
     <li><a data-target="sec-top"><span class="nav-icon">🔥</span> 去年热销</a></li>
     <li><a data-target="sec-info"><span class="nav-icon">📢</span> 近期资讯</a></li>
@@ -56,14 +56,18 @@
     <div class="vis-btn-group">
       <div class="vis-btn-card" onclick="document.getElementById('vis-pdf-area').classList.toggle('hidden')">
         <div class="vis-icon">📊</div>
-        <div class="vis-title">市场视觉需求</div>
-        <div class="vis-desc">查看市场视觉需求PDF文档</div>
+        <div class="vis-text-wrap">
+          <div class="vis-title">市场视觉需求</div>
+          <div class="vis-desc">查看市场视觉需求PDF文档</div>
+        </div>
       </div>
       <a href="image-optimization.html" style="text-decoration:none;">
         <div class="vis-btn-card">
           <div class="vis-icon">✨</div>
-          <div class="vis-title">AI指令快速生成</div>
-          <div class="vis-desc">一键生成AI图片优化提示词</div>
+          <div class="vis-text-wrap">
+            <div class="vis-title">AI指令快速生成</div>
+            <div class="vis-desc">一键生成AI图片优化提示词</div>
+          </div>
         </div>
       </a>
     </div>

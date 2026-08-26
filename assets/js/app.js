@@ -87,15 +87,28 @@ function renderCatCard(catName, subCats) {
     <div class="cat-card-body">`;
   
   for (const [subName, paths] of Object.entries(subCats)) {
-    // 如果只有一个路径，合并显示
-    const pathText = Array.isArray(paths) ? paths.join('；') : String(paths);
-    const pathId = 'path-' + Math.random().toString(36).substr(2, 9);
     html += `<div class="cat-sub-item">
-      <div class="sub-title">${subName}</div>
-      <div class="sub-path">
+      <div class="sub-title">${subName}</div>`;
+    
+    if (Array.isArray(paths) && paths.length > 1) {
+      // 多个路径，每个路径单独一行，各自带复制按钮
+      paths.forEach((path, idx) => {
+        const pathId = 'path-' + Math.random().toString(36).substr(2, 9);
+        html += `<div class="sub-path" style="margin-bottom:6px;">
+          <span id="${pathId}">📍 ${path}</span>
+          <button class="copy-btn" onclick="copyToClipboard(document.getElementById('${pathId}').innerText.replace('📍 ',''))" style="margin-left:8px;padding:2px 10px;font-size:12px;border:1px solid var(--primary);background:var(--primary-light);color:var(--primary);border-radius:4px;cursor:pointer;white-space:nowrap;">📋 复制</button>
+        </div>`;
+      });
+    } else {
+      // 单个路径，合并显示
+      const pathText = Array.isArray(paths) ? paths.join('；') : String(paths);
+      const pathId = 'path-' + Math.random().toString(36).substr(2, 9);
+      html += `<div class="sub-path">
         <span id="${pathId}">📍 ${pathText}</span>
         <button class="copy-btn" onclick="copyToClipboard(document.getElementById('${pathId}').innerText.replace('📍 ',''))" style="margin-left:8px;padding:2px 10px;font-size:12px;border:1px solid var(--primary);background:var(--primary-light);color:var(--primary);border-radius:4px;cursor:pointer;white-space:nowrap;">📋 复制</button>
       </div>`;
+    }
+    
     html += `</div>`;
   }
   
