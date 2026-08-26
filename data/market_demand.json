@@ -1877,7 +1877,7 @@
     "images": [
       "https://us.shein.com/PAVTROS-Men's-PU-Leather-Texture-Short-Sleeve-Shirt-p-422616788-cat-1979.html"
     ],
-    "link": "",
+    "link": "None",
     "updateTime": "2026-07-29 11:50:04",
     "feedbackTime": ""
   },
@@ -1892,7 +1892,7 @@
     "images": [
       "https://us.shein.com/AXEPEAK-Men's-Letter-Print-Short-Sleeve-Shirt-And-Shorts-Set-p-349751034.html"
     ],
-    "link": "",
+    "link": "None",
     "updateTime": "2026-07-27 11:12:03",
     "feedbackTime": ""
   },
@@ -1907,7 +1907,7 @@
     "images": [
       "https://www.amazon.com/dp/B0CR3RGPQ5?th=1&psc=1"
     ],
-    "link": "",
+    "link": "None",
     "updateTime": "2026-08-07 19:46:48",
     "feedbackTime": ""
   },
@@ -1922,7 +1922,7 @@
     "images": [
       "https://ca.shein.com/Musero-Men-Oversized-Long-Sleeve-Button-Through-Shirt-Branded-Embroidery-Front-Pocket-Patch-/-Spring-Summer-p-462027109-cat-1979.html"
     ],
-    "link": "",
+    "link": "None",
     "updateTime": "2026-07-29 11:50:05",
     "feedbackTime": ""
   },
@@ -1937,7 +1937,7 @@
     "images": [
       "https://www.ebay.com/itm/ADIDAS-GOLF-Mens-A55-S-2XL-3XL-ClimaLite-CoolMax-Tech-Polo-dri-fit-Sport-Shirt-/220965939117?mkcid=16&mkevt=1&_trksid=p4429486.m46890.l6249&mkrid=711-127632-2357-0"
     ],
-    "link": "",
+    "link": "None",
     "updateTime": "2026-07-27 11:12:04",
     "feedbackTime": ""
   },
@@ -2715,7 +2715,7 @@
     "leafCategoryId": "30396",
     "industryId": "z251226093965",
     "images": [
-      "http://img.ltwebstatic.com/v4/j/pi/2026/02/06/d2/177035796698f1292d0a05516f431f222d39579651.jpg\\\",\\\"http://img.ltwebstatic.com/v4/j/pi/2026/02/06/e2/17703579680a2998e9d5e4459c620c23266c9dafbb.jpg\\\",\\\"http://img.ltwebstatic.com/v4/j/pi/2026/02/06/2c/17703579690755ebffa22325af0a0e18ad5b42285b.jpg\\\",\\\"http://img.ltwebstatic.com/v4/j/pi/2026/02/06/93/17703579711621e2813e82898b34bcdf88c6c09082.jpg"
+      "http://img.ltwebstatic.com/v4/j/pi/2026/02/06/d2/177035796698f1292d0a05516f431f222d39579651.jpg\\"
     ],
     "link": "https://es.shein.com/pdsearch/397765501",
     "updateTime": "2026-08-05 22:22:21",
@@ -3416,24 +3416,6 @@
     "feedbackTime": ""
   },
   {
-    "taskId": "7615728733",
-    "siteId": "111",
-    "region": "欧区",
-    "category": "外套夹克",
-    "leafCategory": "抓绒衫",
-    "leafCategoryId": "30384",
-    "industryId": "m24070826496",
-    "images": [
-      "https://img.ltwebstatic.com/images3_spmp/2024/07/08/19/17204275433752f0ba7aacc0bc82c44e178c5592ef_thumbnail_750x999.webp",
-      "https://img.ltwebstatic.com/images3_spmp/2024/07/08/19/1720427543bd2f058a70c42694e546a0e4377f8a7f_thumbnail_750x999.webp",
-      "https://img.ltwebstatic.com/images3_spmp/2024/07/08/19/1720427543a1f690916aa0f3bf8e5120870dacd8e4_thumbnail_750x999.webp",
-      "https://img.ltwebstatic.com/images3_spmp/2024/07/08/06/1720427542a5fdf74fa462d4a293ac334fbbaa4a8f_thumbnail_750x999.webp"
-    ],
-    "link": "https://us.shein.com/Streetwear-Harajuku-Dark-Functional-Hooded-Poncho-For-Men,-Loose-Casual-Hiphop-Pullover-Top-Jacket-p-38460352-cat-1983.html",
-    "updateTime": "2026-08-05 22:22:21",
-    "feedbackTime": ""
-  },
-  {
     "taskId": "7597292754",
     "siteId": "111",
     "region": "欧区",
@@ -3466,60 +3448,6 @@
       "https://ae01.alicdn.com/kf/Sb78f7ecf399a4248b86fc8941effa5abG.jpg"
     ],
     "link": "https://es.aliexpress.com/item/1005009508797803.html",
-    "updateTime": "2026-08-21 16:59:46",
-    "feedbackTime": ""
-  },
-  {
-    "taskId": "6770037014",
-    "siteId": "163",
-    "region": "拉美",
-    "category": "外套夹克",
-    "leafCategory": "男士新奇夹克和外套",
-    "leafCategoryId": "30231",
-    "industryId": "1005010456943986",
-    "images": [
-      "https://ae01.alicdn.com/kf/S55d8b1ca46444999a509906c0cc9ff78h.jpg",
-      "https://ae01.alicdn.com/kf/S93de4b26e3bc4f6d995ba3ace72b9e4cp.jpg",
-      "https://ae01.alicdn.com/kf/S8f031a99a16b45259569f71eec517b28I.jpg",
-      "https://ae01.alicdn.com/kf/S69b26804c6974de18b96aa4048c14e8fD.jpg"
-    ],
-    "link": "https://www.aliexpress.com/item/1005010456943986.html",
-    "updateTime": "2026-08-21 16:59:46",
-    "feedbackTime": ""
-  },
-  {
-    "taskId": "6770026074",
-    "siteId": "163",
-    "region": "拉美",
-    "category": "外套夹克",
-    "leafCategory": "男士新奇夹克和外套",
-    "leafCategoryId": "30231",
-    "industryId": "1005010207351995",
-    "images": [
-      "https://ae01.alicdn.com/kf/S5f1ef78e087b4d969a62242596b9b0e6h.jpg",
-      "https://ae01.alicdn.com/kf/S4dcaa8a13b4441d7822c50d27cf27d54e.jpg",
-      "https://ae01.alicdn.com/kf/S361f0d7206414249b9e2627582815d6bM.jpg",
-      "https://ae01.alicdn.com/kf/S06940f18a3d44dce8f823a4c0a23e778p.jpg"
-    ],
-    "link": "https://www.aliexpress.com/item/1005010207351995.html",
-    "updateTime": "2026-08-21 16:59:46",
-    "feedbackTime": ""
-  },
-  {
-    "taskId": "6766321137",
-    "siteId": "163",
-    "region": "拉美",
-    "category": "外套夹克",
-    "leafCategory": "男士新奇夹克和外套",
-    "leafCategoryId": "30231",
-    "industryId": "1005010536062357",
-    "images": [
-      "https://ae-pic-a1.aliexpress-media.com/kf/Sb9e527ac59d04133b94f05cdceab3d30W.jpg?has_lang=1&ver=2",
-      "https://ae-pic-a1.aliexpress-media.com/kf/Sab60a2a3189a414db23bf2b6ffb6a64el.jpeg?has_lang=1&ver=2",
-      "https://ae-pic-a1.aliexpress-media.com/kf/S5151f9e38468411b95c6821e27301eacI.jpg?has_lang=1&ver=2",
-      "https://ae-pic-a1.aliexpress-media.com/kf/S5581e39114cd4b52b8214a11e3fa8340L.jpg?has_lang=1&ver=2"
-    ],
-    "link": "https://www.aliexpress.com/item/1005010536062357.html",
     "updateTime": "2026-08-21 16:59:46",
     "feedbackTime": ""
   },
@@ -3596,78 +3524,6 @@
     "feedbackTime": ""
   },
   {
-    "taskId": "6766006824",
-    "siteId": "110",
-    "region": "拉美",
-    "category": "外套夹克",
-    "leafCategory": "男士皮革夹克",
-    "leafCategoryId": "30397",
-    "industryId": "m251021020455",
-    "images": [
-      "https://img.ltwebstatic.com/v4/j/pi/2025/11/25/ff/176403615174b1f90449c598b1ef6b3b9757d6cc2e_thumbnail_900x.webp",
-      "https://img.ltwebstatic.com/v4/j/pi/2025/11/25/16/17640361538c597da1258c0b9269d0e7c8020bac80_thumbnail_900x.webp",
-      "https://img.ltwebstatic.com/v4/j/pi/2025/11/25/83/1764036154dddd4792315434c4b76637cbcd71cc74_thumbnail_900x.webp",
-      "https://img.ltwebstatic.com/v4/j/pi/2025/11/25/92/176403615683b399c9e2888090bc447f20c77655fd_thumbnail_900x.webp"
-    ],
-    "link": "https://us.shein.com/DAZY-Men's-Thick-Black-Loose-PU-Fabric-Jacket,-Autumn/Winter-Leather-Jacket-p-303688067.html",
-    "updateTime": "2026-08-16 22:52:57",
-    "feedbackTime": ""
-  },
-  {
-    "taskId": "6766016246",
-    "siteId": "110",
-    "region": "拉美",
-    "category": "外套夹克",
-    "leafCategory": "男士运动型夹克",
-    "leafCategoryId": "30388",
-    "industryId": "t260109100776",
-    "images": [
-      "https://img.ltwebstatic.com/v4/j/pi/2026/01/20/f3/17688953088fd0d8d26ae88e63d6a320166a22ba25_thumbnail_900x.webp",
-      "https://img.ltwebstatic.com/v4/j/pi/2026/01/20/9f/1768895310addfe35c1aa4fc8b33826032a6d0b1d6_thumbnail_900x.webp",
-      "https://img.ltwebstatic.com/v4/j/pi/2026/01/20/12/1768895311be9f43ea7eaa8a80e8ea734bac735aa4_thumbnail_900x.webp",
-      "https://img.ltwebstatic.com/v4/j/pi/2026/01/20/bb/1768895313706bfea24e545fba7642334a13fd444d_thumbnail_900x.webp"
-    ],
-    "link": "https://us.shein.com/Sport-MetroGents-Men's-Minimalist-Printed-Zip-Up-Long-Sleeve-Sports-Jacket-p-380324682.html",
-    "updateTime": "2026-08-16 22:52:57",
-    "feedbackTime": ""
-  },
-  {
-    "taskId": "6770207202",
-    "siteId": "110",
-    "region": "拉美",
-    "category": "衬衫",
-    "leafCategory": "男装休闲衬衫",
-    "leafCategoryId": "30471",
-    "industryId": "m2605191840185160",
-    "images": [
-      "https://img.ltwebstatic.com/v4/j/pi/2026/06/02/8e/1780395271985ff3707dd74a85832177617b3c110b_thumbnail_900x.webp",
-      "https://img.ltwebstatic.com/v4/j/pi/2026/06/02/8e/17803952723dc0a91ad54075e7b277fec081158ac6_thumbnail_900x.webp",
-      "https://img.ltwebstatic.com/v4/j/pi/2026/06/02/9c/1780395274b6865d753be16eb6d36f5800d9b4b8df_thumbnail_900x.webp",
-      "https://img.ltwebstatic.com/v4/j/pi/2026/06/02/fb/1780395275b73b4773d8f95d84542429826e43ecfa_thumbnail_900x.webp"
-    ],
-    "link": "https://ca.shein.com/Manfinity-Dauomo-Men's-Elegant-Sheer-Long-Sleeve-Shirt-With-Cowl-Neck-p-490372994-cat-1979.html",
-    "updateTime": "2026-08-16 22:53:08",
-    "feedbackTime": ""
-  },
-  {
-    "taskId": "6751255378",
-    "siteId": "110",
-    "region": "拉美",
-    "category": "外套夹克",
-    "leafCategory": "男士人造革夹克",
-    "leafCategoryId": "30396",
-    "industryId": "t23123078448",
-    "images": [
-      "https://img.ltwebstatic.com/images3_spmp/2023/12/30/ea/170391869602c68d074d8d0df7bbefd7a306fb4f7d_thumbnail_750x999.webp",
-      "https://img.ltwebstatic.com/images3_spmp/2023/12/30/e7/170391870251dac3947a79558c7cf7c7dcfdebccfe_thumbnail_750x999.webp",
-      "https://img.ltwebstatic.com/images3_spmp/2023/12/30/d2/17039187051d2959dd08907897dd8bf9f5ff9afc54_thumbnail_750x999.webp",
-      "https://img.ltwebstatic.com/images3_spmp/2023/12/30/68/1703918688b44a5645cf779971563fa372ce23916e_thumbnail_750x999.webp"
-    ],
-    "link": "https://www.shein.co.uk/Boyfriend-Style-Men's-Windproof-PU-Leather-Sports-Jacket-With-Button-Down-Collar,-For-Biking-And-Motorcycling,-Black-p-29548296-cat-2448.html",
-    "updateTime": "2026-08-16 22:52:57",
-    "feedbackTime": ""
-  },
-  {
     "taskId": "6769279349",
     "siteId": "164",
     "region": "拉美",
@@ -3722,42 +3578,6 @@
     "feedbackTime": ""
   },
   {
-    "taskId": "6769363022",
-    "siteId": "103",
-    "region": "拉美",
-    "category": "衬衫",
-    "leafCategory": "男士运动服系扣衬衫",
-    "leafCategoryId": "30424",
-    "industryId": "B07J6J4ZMR",
-    "images": [
-      "https://m.media-amazon.com/images/I/81evl4e+OlL._AC_SX385_.jpg",
-      "https://m.media-amazon.com/images/I/81RbwWNxY2L._AC_SX466_.jpg",
-      "https://m.media-amazon.com/images/I/81ndzYBFjfL._AC_SX679_.jpg",
-      "https://m.media-amazon.com/images/I/91CdtxzXF6L._AC_SX679_.jpg"
-    ],
-    "link": "https://www.amazon.com.au/dp/B07J6J4ZMR?th=1&psc=1",
-    "updateTime": "2026-08-04 16:19:58",
-    "feedbackTime": ""
-  },
-  {
-    "taskId": "6770208243",
-    "siteId": "110",
-    "region": "拉美",
-    "category": "外套夹克",
-    "leafCategory": "男士防风衣",
-    "leafCategoryId": "30406",
-    "industryId": "m250605923412",
-    "images": [
-      "https://img.ltwebstatic.com/v4/j/pi/2026/03/05/58/17727056627cbda524ff3d46e8eb544109cc1fcf44_thumbnail_750x999.webp",
-      "https://img.ltwebstatic.com/v4/j/pi/2026/03/05/dc/177270566451b208df9f6f58827d8e416cf5386a63_thumbnail_750x999.webp",
-      "https://img.ltwebstatic.com/v4/j/pi/2026/03/05/aa/17727056669556f8277b95edb8f8adb0c1b383ebeb_thumbnail_750x999.webp",
-      "https://img.ltwebstatic.com/v4/j/pi/2026/03/05/ee/1772705669af5675708a8b921a01ab81649c26e484_thumbnail_750x999.webp"
-    ],
-    "link": "https://us.shein.com/PAVTROS-Men's-Casual-Fashionable-Street-Wear-Contrast-Color-Letter-Print-Half-Zip-Stand-Collar-Jacket,-Suitable-For-Spring-And-Autumn-p-415041317-cat-1983.html",
-    "updateTime": "2026-08-16 22:53:26",
-    "feedbackTime": ""
-  },
-  {
     "taskId": "6769296138",
     "siteId": "164",
     "region": "拉美",
@@ -3773,40 +3593,6 @@
     ],
     "link": "https://us.shein.com/PAVTROS-Manfinity-Streetrush-Men's-Street-Fashion-Red-Zip-Up-Jacket,-Statue-Of-Liberty-Jacket-Jazz-Graphic-Jacket-Red-Corduroy-Jacket-Music-Graphic-Zip-Up-Red-Graphic-Jacket-Y2k-Jacket-Varsity-Jacket,-Fall-Winter-p-161766266-cat-1983.html",
     "updateTime": "2026-08-03 11:41:08",
-    "feedbackTime": ""
-  },
-  {
-    "taskId": "6770029051",
-    "siteId": "163",
-    "region": "拉美",
-    "category": "外套夹克",
-    "leafCategory": "男士防风衣",
-    "leafCategoryId": "30406",
-    "industryId": "1005009948058872",
-    "images": [
-      "https://ae01.alicdn.com/kf/Sdbfebbf6aeeb431c9baa816d60f35a436.jpg",
-      "https://ae01.alicdn.com/kf/S33de5d9c469845f9a9a06704919f95872.jpg?has_lang=1&ver=2"
-    ],
-    "link": "https://www.aliexpress.com/item/1005009948058872.html",
-    "updateTime": "2026-08-14 15:55:04",
-    "feedbackTime": ""
-  },
-  {
-    "taskId": "6769209965",
-    "siteId": "164",
-    "region": "拉美",
-    "category": "外套夹克",
-    "leafCategory": "男士皮革夹克",
-    "leafCategoryId": "30397",
-    "industryId": "1005007501774518",
-    "images": [
-      "https://ae-pic-a1.aliexpress-media.com/kf/Sd9fe4478c4fb499d9d8fc95dbb3ba5edt.jpg",
-      "https://ae-pic-a1.aliexpress-media.com/kf/Sc92a71ca53194ac9b9a81fdacbc3e8f5w.jpg",
-      "https://ae-pic-a1.aliexpress-media.com/kf/Sc8aeb227112a4acfabec24e63214ce61k.jpg",
-      "https://ae-pic-a1.aliexpress-media.com/kf/Se69f08d7a292406b891ad95ea1d3ae66X.jpg"
-    ],
-    "link": "https://es.aliexpress.com/item/1005007501774518.html",
-    "updateTime": "2026-08-03 11:41:38",
     "feedbackTime": ""
   },
   {
@@ -3843,24 +3629,6 @@
     ],
     "link": "https://www.amazon.com/dp/B000BB7W4U?th=1&psc=1",
     "updateTime": "2026-08-03 11:41:03",
-    "feedbackTime": ""
-  },
-  {
-    "taskId": "6761346799",
-    "siteId": "110",
-    "region": "拉美",
-    "category": "衬衫",
-    "leafCategory": "男装休闲衬衫",
-    "leafCategoryId": "30471",
-    "industryId": "m2602041743126308",
-    "images": [
-      "http://img.ltwebstatic.com/v4/j/pi/2026/03/16/1a/1773627194622a92ab9bd6116f96d8413e1b50f9d9_thumbnail_750x999.webp",
-      "http://img.ltwebstatic.com/v4/j/pi/2026/03/16/35/177362719631643a81b2d8528bd8eca193434720de_thumbnail_750x999.webp",
-      "http://img.ltwebstatic.com/v4/j/pi/2026/03/16/3d/1773627198386a9b86e8fcb961128c9765ddaafe6f_thumbnail_750x999.webp",
-      "http://img.ltwebstatic.com/v4/j/pi/2026/03/16/c4/17736272014d477d275f224daf35edb25e2024109d_thumbnail_750x999.webp"
-    ],
-    "link": "https://de.shein.com/AXEPEAK-Men's-Striped-Single-Breasted-Letter-Print-Casual-Versatile-Daily-Wear-Shirt-p-421426651-cat-1979.html",
-    "updateTime": "2026-08-16 22:52:57",
     "feedbackTime": ""
   },
   {
@@ -3954,24 +3722,6 @@
     "feedbackTime": ""
   },
   {
-    "taskId": "6740294610",
-    "siteId": "100",
-    "region": "美区",
-    "category": "外套夹克",
-    "leafCategory": "男士棉质轻型夹克",
-    "leafCategoryId": "30405",
-    "industryId": "m250828956554",
-    "images": [
-      "http://img.ltwebstatic.com/v4/j/pi/2025/09/29/32/1759124280ccc18e597638c9a8bc56e059f1a0357c.jpg",
-      "http://img.ltwebstatic.com/v4/j/pi/2025/09/29/91/17591242810f8d7483890a1fb73a11de0bf1167675.jpg",
-      "http://img.ltwebstatic.com/v4/j/pi/2025/09/29/79/1759124283cf67191d9b5dd46c97fedc1fc60e5863.jpg",
-      "http://img.ltwebstatic.com/v4/j/pi/2025/09/29/5b/17591242856a9533e472e5ff3e119d8da5111880e3.jpg"
-    ],
-    "link": "https://us.shein.com/ROMWE-MEN-Street-Life-Unisex-Patchwork-Street-Style-American-Jacket,-Autumn/Winter-p-200413570.html",
-    "updateTime": "2026-08-17 22:13:32",
-    "feedbackTime": ""
-  },
-  {
     "taskId": "6743317848",
     "siteId": "100",
     "region": "美区",
@@ -3990,24 +3740,6 @@
     "feedbackTime": ""
   },
   {
-    "taskId": "6743318171",
-    "siteId": "100",
-    "region": "美区",
-    "category": "外套夹克",
-    "leafCategory": "男士皮革夹克",
-    "leafCategoryId": "30397",
-    "industryId": "m251029355744",
-    "images": [
-      "https://img.ltwebstatic.com/v4/j/pi/2025/12/19/dc/17661221751d325c3c43a5b7abbbf4ed08aa422ef5_thumbnail_900x.webp",
-      "https://img.ltwebstatic.com/v4/j/pi/2025/12/19/e9/1766122177d5a63a53688d5eb7b040f23dd844265a_thumbnail_900x.webp",
-      "https://img.ltwebstatic.com/v4/j/pi/2025/12/19/17/17661221795a6b93f1509a812d81d03304f32a476a_thumbnail_900x.webp",
-      "https://img.ltwebstatic.com/v4/j/pi/2025/12/19/46/1766122181a6d575f4b89d2b8c1a651ce282b96b4b_thumbnail_900x.webp"
-    ],
-    "link": "https://us.shein.com/ROMWE-MEN-Street-Life-Men's-Solid-Color-PU-Leather-Zip-Front-Utility-Pocket-Casual-Jacket-p-329697940.html",
-    "updateTime": "2026-08-17 22:14:20",
-    "feedbackTime": ""
-  },
-  {
     "taskId": "6739263426",
     "siteId": "100",
     "region": "美区",
@@ -4023,24 +3755,6 @@
     ],
     "link": "https://us.shein.com/SUMWON-Mens-Cropped-Fit-Button-Up-Short-Sleeve-Woven-Shirt-With-Classic-Collar-And-Full-Button-Closure-For-Casual-Everyday-Wear-For-Valentine's-Day-p-391046431.html",
     "updateTime": "2026-08-17 22:13:32",
-    "feedbackTime": ""
-  },
-  {
-    "taskId": "6743318026",
-    "siteId": "100",
-    "region": "美区",
-    "category": "外套夹克",
-    "leafCategory": "男士防风衣",
-    "leafCategoryId": "30406",
-    "industryId": "B0H4L318RL",
-    "images": [
-      "https://m.media-amazon.com/images/I/31GKwFhAtaL._AC_.jpg",
-      "https://m.media-amazon.com/images/I/31-D2bmir6L._AC_.jpg",
-      "https://m.media-amazon.com/images/I/31ImfDhGxtL._AC_.jpg",
-      "https://m.media-amazon.com/images/I/31ahb8vtcTL._AC_.jpg"
-    ],
-    "link": "https://www.amazon.com/dp/B0H4L318RL?th=1&psc=1",
-    "updateTime": "2026-08-17 20:47:59",
     "feedbackTime": ""
   },
   {
@@ -4680,7 +4394,7 @@
     "leafCategoryId": "30396",
     "industryId": "z251226093965",
     "images": [
-      "http://img.ltwebstatic.com/v4/j/pi/2026/02/06/d2/177035796698f1292d0a05516f431f222d39579651.jpg\\\",\\\"http://img.ltwebstatic.com/v4/j/pi/2026/02/06/e2/17703579680a2998e9d5e4459c620c23266c9dafbb.jpg\\\",\\\"http://img.ltwebstatic.com/v4/j/pi/2026/02/06/2c/17703579690755ebffa22325af0a0e18ad5b42285b.jpg\\\",\\\"http://img.ltwebstatic.com/v4/j/pi/2026/02/06/93/17703579711621e2813e82898b34bcdf88c6c09082.jpg"
+      "http://img.ltwebstatic.com/v4/j/pi/2026/02/06/d2/177035796698f1292d0a05516f431f222d39579651.jpg\\"
     ],
     "link": "https://es.shein.com/pdsearch/397765501",
     "updateTime": "2026-08-05 22:22:21",
