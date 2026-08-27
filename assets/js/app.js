@@ -45,19 +45,71 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ==================== 视觉优化PDF按需加载 ====================
+var visPdfRendered = false;
 function showVisPdf() {
   const area = document.getElementById('vis-pdf-area');
-  const iframe = area.querySelector('iframe');
   if (area.classList.contains('hidden')) {
-    // 首次显示时才设置src，避免页面加载时预加载PDF
-    if (!iframe.src || iframe.src === '') {
-      iframe.src = iframe.dataset.pdf;
-    }
+    // 显示区域
     area.classList.remove('hidden');
     area.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+    // 首次显示时用 PDF.js 渲染 PDF
+    if (!visPdfRendered) {
+      visPdfRendered = true;
+      renderVisPdf();
+    }
   } else {
     area.classList.add('hidden');
   }
+}
+
+function renderVisPdf() {
+  var container = document.getElementById('vis-pdf-canvas-container');
+  if (!container) return;
+  var pdfUrl = container.dataset.pdf;
+
+  container.innerHTML = '<div class="pdf-loading" style="display:flex;align-items:center;justify-content:center;height:400px;color:var(--muted);font-size:15px;">📄 PDF加载中…</div>';
+
+  if (!window.pdfjsLib) {
+    container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:400px;color:var(--red);font-size:15px;">⚠️ PDF.js库加载失败，请使用上方下载按钮下载查看</div>';
+    return;
+  }
+
+  var loadingTask = pdfjsLib.getDocument(pdfUrl);
+  loadingTask.promise.then(function(pdf) {
+    container.innerHTML = '';
+
+    function renderPage(num) {
+      pdf.getPage(num).then(function(page) {
+        var containerWidth = container.clientWidth - 20;
+        var viewport = page.getViewport({ scale: 1 });
+        var scale = containerWidth / viewport.width;
+        var scaledViewport = page.getViewport({ scale: scale });
+
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        canvas.width = scaledViewport.width;
+        canvas.height = scaledViewport.height;
+        canvas.style.display = 'block';
+        canvas.style.maxWidth = '100%';
+        canvas.style.height = 'auto';
+        container.appendChild(canvas);
+
+        var renderContext = {
+          canvasContext: ctx,
+          viewport: scaledViewport
+        };
+        page.render(renderContext).promise.then(function() {
+          if (num < pdf.numPages) {
+            renderPage(num + 1);
+          }
+        });
+      });
+    }
+    renderPage(1);
+  }).catch(function(error) {
+    container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:400px;color:var(--red);font-size:15px;">⚠️ PDF加载失败，请使用上方下载按钮下载查看</div>';
+  });
 }
 
 // ==================== 类目指引 ====================

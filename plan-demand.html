@@ -5,6 +5,58 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>企划需求 | 麦杞岐对接服务站</title>
 <link rel="stylesheet" href="assets/css/style.css">
+<!-- PDF.js 库：用于在浏览器中渲染PDF，避免iframe无法显示PDF及自动下载问题 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+  // 设置 PDF.js worker 路径
+  if (window.pdfjsLib) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  }
+</script>
+<style>
+  .pdf-canvas-container {
+    width: 100%;
+    overflow: auto;
+    background: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    min-height: 400px;
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+  }
+  .pdf-canvas-container canvas {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  .pdf-download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 10px;
+    padding: 8px 18px;
+    font-size: 14px;
+    color: #fff;
+    background: var(--primary);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .pdf-download-btn:hover {
+    background: var(--primary-hover);
+  }
+  .pdf-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    color: var(--muted);
+    font-size: 15px;
+  }
+</style>
 </head>
 <body>
 
@@ -44,19 +96,23 @@
 
       <div class="pdf-section" id="pdf-jacket-1">
         <h3>都市基础风</h3>
-        <iframe class="pdf-viewer" src="assets/pdf/jacket-urban-basic.pdf#view=FitH&zoom=100"></iframe>
+        <a class="pdf-download-btn" href="assets/pdf/jacket-urban-basic.pdf" download>⬇️ 下载PDF</a>
+        <div class="pdf-canvas-container" data-pdf="assets/pdf/jacket-urban-basic.pdf"><div class="pdf-loading">📄 PDF加载中…</div></div>
       </div>
       <div class="pdf-section" id="pdf-jacket-2">
         <h3>工装</h3>
-        <iframe class="pdf-viewer" src="assets/pdf/jacket-workwear.pdf#view=FitH&zoom=100"></iframe>
+        <a class="pdf-download-btn" href="assets/pdf/jacket-workwear.pdf" download>⬇️ 下载PDF</a>
+        <div class="pdf-canvas-container" data-pdf="assets/pdf/jacket-workwear.pdf"><div class="pdf-loading">📄 PDF加载中…</div></div>
       </div>
       <div class="pdf-section" id="pdf-jacket-3">
         <h3>皮衣夹克</h3>
-        <iframe class="pdf-viewer" src="assets/pdf/jacket-leather.pdf#view=FitH&zoom=100"></iframe>
+        <a class="pdf-download-btn" href="assets/pdf/jacket-leather.pdf" download>⬇️ 下载PDF</a>
+        <div class="pdf-canvas-container" data-pdf="assets/pdf/jacket-leather.pdf"><div class="pdf-loading">📄 PDF加载中…</div></div>
       </div>
       <div class="pdf-section" id="pdf-jacket-4">
         <h3>户外机能风</h3>
-        <iframe class="pdf-viewer" src="assets/pdf/jacket-outdoor-tech.pdf#view=FitH&zoom=100"></iframe>
+        <a class="pdf-download-btn" href="assets/pdf/jacket-outdoor-tech.pdf" download>⬇️ 下载PDF</a>
+        <div class="pdf-canvas-container" data-pdf="assets/pdf/jacket-outdoor-tech.pdf"><div class="pdf-loading">📄 PDF加载中…</div></div>
       </div>
     </div>
 
@@ -70,15 +126,18 @@
 
       <div class="pdf-section" id="pdf-shirt-1">
         <h3>工装衬衫</h3>
-        <iframe class="pdf-viewer" src="assets/pdf/shirt-workwear.pdf#view=FitH&zoom=100"></iframe>
+        <a class="pdf-download-btn" href="assets/pdf/shirt-workwear.pdf" download>⬇️ 下载PDF</a>
+        <div class="pdf-canvas-container" data-pdf="assets/pdf/shirt-workwear.pdf"><div class="pdf-loading">📄 PDF加载中…</div></div>
       </div>
       <div class="pdf-section" id="pdf-shirt-2">
         <h3>休闲衬衫</h3>
-        <iframe class="pdf-viewer" src="assets/pdf/shirt-casual.pdf#view=FitH&zoom=100"></iframe>
+        <a class="pdf-download-btn" href="assets/pdf/shirt-casual.pdf" download>⬇️ 下载PDF</a>
+        <div class="pdf-canvas-container" data-pdf="assets/pdf/shirt-casual.pdf"><div class="pdf-loading">📄 PDF加载中…</div></div>
       </div>
       <div class="pdf-section" id="pdf-shirt-3">
         <h3>商务衬衫</h3>
-        <iframe class="pdf-viewer" src="assets/pdf/shirt-business.pdf#view=FitH&zoom=100"></iframe>
+        <a class="pdf-download-btn" href="assets/pdf/shirt-business.pdf" download>⬇️ 下载PDF</a>
+        <div class="pdf-canvas-container" data-pdf="assets/pdf/shirt-business.pdf"><div class="pdf-loading">📄 PDF加载中…</div></div>
       </div>
     </div>
 
@@ -94,6 +153,74 @@
 </main>
 
 <script>
+// ==================== PDF.js 渲染逻辑 ====================
+// 已渲染过的PDF集合，避免重复渲染
+var renderedPdfs = new Set();
+
+function renderPdf(container) {
+  var pdfUrl = container.dataset.pdf;
+  if (renderedPdfs.has(pdfUrl)) return;
+  renderedPdfs.add(pdfUrl);
+
+  container.innerHTML = '<div class="pdf-loading">📄 PDF加载中…</div>';
+
+  if (!window.pdfjsLib) {
+    container.innerHTML = '<div class="pdf-loading" style="color:var(--red);">⚠️ PDF.js库加载失败，请检查网络连接<br>您可以使用上方下载按钮下载PDF查看</div>';
+    return;
+  }
+
+  var loadingTask = pdfjsLib.getDocument(pdfUrl);
+  loadingTask.promise.then(function(pdf) {
+    container.innerHTML = '';
+
+    function renderPage(num) {
+      pdf.getPage(num).then(function(page) {
+        var containerWidth = container.clientWidth - 20;
+        var viewport = page.getViewport({ scale: 1 });
+        var scale = containerWidth / viewport.width;
+        var scaledViewport = page.getViewport({ scale: scale });
+
+        var canvas = document.createElement('canvas');
+        var ctx = canvas.getContext('2d');
+        canvas.width = scaledViewport.width;
+        canvas.height = scaledViewport.height;
+        container.appendChild(canvas);
+
+        var renderContext = {
+          canvasContext: ctx,
+          viewport: scaledViewport
+        };
+        page.render(renderContext).promise.then(function() {
+          if (num < pdf.numPages) {
+            renderPage(num + 1);
+          }
+        });
+      });
+    }
+    renderPage(1);
+  }).catch(function(error) {
+    container.innerHTML = '<div class="pdf-loading" style="color:var(--red);">⚠️ PDF加载失败<br>请使用上方下载按钮下载查看</div>';
+  });
+}
+
+// 使用 IntersectionObserver 实现PDF懒加载（进入视口时才渲染）
+var pdfObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(entry) {
+    if (entry.isIntersecting) {
+      renderPdf(entry.target);
+      pdfObserver.unobserve(entry.target);
+    }
+  });
+}, { rootMargin: '100px' });
+
+// 初始化：监听所有PDF容器
+function initPdfObservers() {
+  document.querySelectorAll('.pdf-canvas-container').forEach(function(container) {
+    pdfObserver.observe(container);
+  });
+}
+
+// ==================== 页面交互逻辑 ====================
 function switchTab(tab) {
   document.querySelectorAll('.plan-tab').forEach(function(t) {
     t.classList.toggle('active', t.dataset.tab === tab);
@@ -101,6 +228,17 @@ function switchTab(tab) {
   document.getElementById('panel-jacket').classList.toggle('hidden', tab !== 'jacket');
   document.getElementById('panel-shirt').classList.toggle('hidden', tab !== 'shirt');
   window.scrollTo({ top: 0, behavior: 'smooth' });
+  // 切换tab后重新检查可见的PDF并渲染
+  setTimeout(function() {
+    document.querySelectorAll('.pdf-canvas-container').forEach(function(container) {
+      if (container.offsetParent !== null) {
+        var rect = container.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          renderPdf(container);
+        }
+      }
+    });
+  }, 100);
 }
 
 document.querySelectorAll('.plan-nav a').forEach(function(link) {
@@ -112,9 +250,19 @@ document.querySelectorAll('.plan-nav a').forEach(function(link) {
     var target = document.getElementById(link.dataset.target);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // 滚动后渲染对应的PDF
+      setTimeout(function() {
+        var container = target.querySelector('.pdf-canvas-container');
+        if (container) {
+          renderPdf(container);
+        }
+      }, 500);
     }
   });
 });
+
+// 页面加载完成后初始化PDF观察器
+document.addEventListener('DOMContentLoaded', initPdfObservers);
 
 var footer = document.createElement('footer');
 footer.className = 'site-footer';

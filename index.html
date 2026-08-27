@@ -5,6 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>麦杞岐对接服务站 | 男装外套夹克 · 衬衫亨利衫</title>
 <link rel="stylesheet" href="assets/css/style.css">
+<!-- PDF.js 库：用于在浏览器中渲染PDF，避免iframe无法显示PDF及自动下载问题 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script>
+  if (window.pdfjsLib) {
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  }
+</script>
 </head>
 <body>
 
@@ -74,7 +81,8 @@
     <div id="vis-pdf-area" class="hidden">
       <div class="card" style="padding:20px;">
         <h3 style="margin-bottom:12px;color:var(--primary);">📄 市场视觉需求文档</h3>
-        <iframe class="pdf-viewer" src="" data-pdf="assets/pdf/market-visual-demand.pdf#view=FitH&zoom=120" style="height:80vh;min-height:600px;"></iframe>
+        <a class="pdf-download-btn" href="assets/pdf/market-visual-demand.pdf" download style="display:inline-flex;align-items:center;gap:6px;margin-bottom:10px;padding:8px 18px;font-size:14px;color:#fff;background:var(--primary);border:none;border-radius:6px;cursor:pointer;text-decoration:none;">⬇️ 下载PDF</a>
+        <div id="vis-pdf-canvas-container" class="pdf-canvas-container" data-pdf="assets/pdf/market-visual-demand.pdf" style="width:100%;overflow:auto;background:#f5f5f5;border-radius:10px;box-shadow:var(--shadow);min-height:400px;display:flex;justify-content:center;padding:10px 0;"><div class="pdf-loading" style="display:flex;align-items:center;justify-content:center;height:400px;color:var(--muted);font-size:15px;">📄 点击查看PDF</div></div>
       </div>
     </div>
   </section>
