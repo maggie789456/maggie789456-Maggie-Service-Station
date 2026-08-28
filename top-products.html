@@ -238,7 +238,7 @@ body { background: #f5f5f5; }
     <div class="modal-content">
         <button class="modal-close" onclick="closeModal()">✕</button>
         <div class="modal-image-wrap">
-            <img id="modalImage" src="" alt="" referrerpolicy="no-referrer">
+            <img id="modalImage" src="" alt="">
         </div>
         <div class="modal-info">
             <button class="search-same-btn" onclick="searchSameProduct()">🔍 搜索识别图片同款</button>
@@ -307,7 +307,7 @@ function renderProducts() {
             if (!p.imageUrl) return;
             html += `<div class="top-product-card">`;
             html += `<div class="top-product-image" onclick="openModal('${p.imageUrl.replace(/'/g, "\\'")}')">`;
-            html += `<img src="${p.imageUrl}" alt="商品图" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.parentElement.style.display='none'">`;
+            html += `<img src="${p.imageUrl}" alt="商品图" loading="lazy" onerror="this.parentElement.parentElement.style.display='none'">`;
             html += `</div>`;
             html += `</div>`;
         });

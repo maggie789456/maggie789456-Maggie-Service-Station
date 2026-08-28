@@ -409,7 +409,7 @@ body { background: #f5f5f5; }
     <span class="close-btn" onclick="closeModal()">&times;</span>
     <span class="nav-btn prev-btn" onclick="navModal(-1)">&#8249;</span>
     <span class="nav-btn next-btn" onclick="navModal(1)">&#8250;</span>
-    <img class="modal-img" id="modal-img" src="" referrerpolicy="no-referrer">
+    <img class="modal-img" id="modal-img" src="">
     <div class="modal-info" id="modal-info"></div>
 </div>
 
@@ -497,7 +497,7 @@ function renderPanel(containerId, panelPrefix, categoryKey) {
             html += '<div class="image-card" onclick="openModal(' + globalIdx + ')">';
             html += '<div class="img-wrap">';
             if (hasImg) {
-                html += '<img src="' + escapeHtml(firstImg) + '" alt="商品图片" loading="lazy" referrerpolicy="no-referrer" onerror="this.parentElement.innerHTML=\'<div class=\\\'no-img\\\'>图片加载失败</div>\'">';
+                html += '<img src="' + escapeHtml(firstImg) + '" alt="商品图片" loading="lazy" onerror="this.parentElement.innerHTML=\'<div class=\\\'no-img\\\'>图片加载失败</div>\'">';
                 html += '<div class="search-icon">🔍</div>';
             } else {
                 html += '<div class="no-img">暂无图片<br>点击查看链接</div>';
