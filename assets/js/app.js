@@ -44,16 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
   loadNotices();
 });
 
-// ==================== 视觉优化PDF按需加载 ====================
+// ==================== 视觉优化PDF高清渲染 ====================
 var visPdfRendered = false;
+var VIS_PDF_SCALE = 2; // 高清渲染倍数
+
 function showVisPdf() {
   const area = document.getElementById('vis-pdf-area');
   if (area.classList.contains('hidden')) {
-    // 显示区域
     area.classList.remove('hidden');
     area.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-    // 首次显示时用 PDF.js 渲染 PDF
     if (!visPdfRendered) {
       visPdfRendered = true;
       renderVisPdf();
@@ -68,10 +67,10 @@ function renderVisPdf() {
   if (!container) return;
   var pdfUrl = container.dataset.pdf;
 
-  container.innerHTML = '<div class="pdf-loading" style="display:flex;align-items:center;justify-content:center;height:400px;color:var(--muted);font-size:15px;">📄 PDF加载中…</div>';
+  container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:300px;color:#ccc;font-size:15px;">📄 PDF加载中…</div>';
 
   if (!window.pdfjsLib) {
-    container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:400px;color:var(--red);font-size:15px;">⚠️ PDF.js库加载失败，请使用上方下载按钮下载查看</div>';
+    container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:300px;color:#ff6a00;font-size:15px;">⚠️ PDF.js库加载失败，请使用上方下载按钮下载查看</div>';
     return;
   }
 
@@ -79,27 +78,58 @@ function renderVisPdf() {
   loadingTask.promise.then(function(pdf) {
     container.innerHTML = '';
 
+    // 工具栏
+    var toolbar = document.createElement('div');
+    toolbar.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:6px 12px;background:#3b3d40;color:#ddd;font-size:13px;';
+    toolbar.innerHTML = '<span>📄 共 ' + pdf.numPages + ' 页</span><span class="page-info" style="color:#aaa;">高清渲染中…</span>';
+    container.appendChild(toolbar);
+
+    var wrapper = document.createElement('div');
+    wrapper.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 0;';
+    container.appendChild(wrapper);
+
+    var renderedCount = 0;
+
     function renderPage(num) {
       pdf.getPage(num).then(function(page) {
-        var containerWidth = container.clientWidth - 20;
-        var viewport = page.getViewport({ scale: 1 });
-        var scale = containerWidth / viewport.width;
-        var scaledViewport = page.getViewport({ scale: scale });
+        var containerWidth = container.clientWidth;
+        if (containerWidth < 100) containerWidth = 1200;
+        var baseViewport = page.getViewport({ scale: 1 });
+        var displayScale = containerWidth / baseViewport.width;
+        var renderScaleVal = displayScale * VIS_PDF_SCALE;
+        var renderViewport = page.getViewport({ scale: renderScaleVal });
+
+        var pageDiv = document.createElement('div');
+        pageDiv.style.cssText = 'position:relative;background:#fff;box-shadow:0 2px 8px rgba(0,0,0,0.3);line-height:0;width:' + (baseViewport.width * displayScale) + 'px;';
 
         var canvas = document.createElement('canvas');
         var ctx = canvas.getContext('2d');
-        canvas.width = scaledViewport.width;
-        canvas.height = scaledViewport.height;
-        canvas.style.display = 'block';
-        canvas.style.maxWidth = '100%';
-        canvas.style.height = 'auto';
-        container.appendChild(canvas);
+        canvas.width = renderViewport.width;
+        canvas.height = renderViewport.height;
+        canvas.style.cssText = 'display:block;width:100%;height:auto;';
+        pageDiv.appendChild(canvas);
+
+        var pageNum = document.createElement('div');
+        pageNum.style.cssText = 'position:absolute;bottom:4px;right:6px;background:rgba(0,0,0,0.5);color:#fff;font-size:11px;padding:1px 6px;border-radius:3px;line-height:1.4;';
+        pageNum.textContent = num + ' / ' + pdf.numPages;
+        pageDiv.appendChild(pageNum);
+
+        wrapper.appendChild(pageDiv);
 
         var renderContext = {
           canvasContext: ctx,
-          viewport: scaledViewport
+          viewport: renderViewport
         };
         page.render(renderContext).promise.then(function() {
+          renderedCount++;
+          var info = toolbar.querySelector('.page-info');
+          if (info) {
+            if (num < pdf.numPages) {
+              info.textContent = '已渲染 ' + renderedCount + '/' + pdf.numPages + ' 页';
+            } else {
+              info.textContent = '✅ 全部 ' + pdf.numPages + ' 页已加载';
+            }
+          }
           if (num < pdf.numPages) {
             renderPage(num + 1);
           }
@@ -108,7 +138,7 @@ function renderVisPdf() {
     }
     renderPage(1);
   }).catch(function(error) {
-    container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:400px;color:var(--red);font-size:15px;">⚠️ PDF加载失败，请使用上方下载按钮下载查看</div>';
+    container.innerHTML = '<div style="display:flex;align-items:center;justify-content:center;height:300px;color:#ff6a00;font-size:15px;">⚠️ PDF加载失败，请使用上方下载按钮下载查看</div>';
   });
 }
 

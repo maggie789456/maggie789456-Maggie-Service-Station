@@ -16,19 +16,41 @@
 <style>
   .pdf-canvas-container {
     width: 100%;
-    overflow: auto;
-    background: #f5f5f5;
+    background: #525659;
     border-radius: 10px;
     box-shadow: var(--shadow);
-    min-height: 400px;
-    display: flex;
-    justify-content: center;
-    padding: 10px 0;
+    min-height: 300px;
+    overflow: hidden;
+    position: relative;
   }
-  .pdf-canvas-container canvas {
+  .pdf-pages-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 0;
+  }
+  .pdf-page-wrapper {
+    position: relative;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    line-height: 0;
+  }
+  .pdf-page-wrapper canvas {
     display: block;
-    max-width: 100%;
+    width: 100%;
     height: auto;
+  }
+  .pdf-page-num {
+    position: absolute;
+    bottom: 4px;
+    right: 6px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    font-size: 11px;
+    padding: 1px 6px;
+    border-radius: 3px;
+    line-height: 1.4;
   }
   .pdf-download-btn {
     display: inline-flex;
@@ -52,9 +74,22 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 400px;
-    color: var(--muted);
+    height: 300px;
+    color: #ccc;
     font-size: 15px;
+  }
+  .pdf-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 12px;
+    background: #3b3d40;
+    color: #ddd;
+    font-size: 13px;
+    border-radius: 10px 10px 0 0;
+  }
+  .pdf-toolbar .page-info {
+    color: #aaa;
   }
 </style>
 </head>
@@ -153,9 +188,9 @@
 </main>
 
 <script>
-// ==================== PDF.js 渲染逻辑 ====================
-// 已渲染过的PDF集合，避免重复渲染
+// ==================== PDF.js 高清渲染逻辑 ====================
 var renderedPdfs = new Set();
+var RENDER_SCALE = 2; // 高清渲染倍数，确保文字清晰
 
 function renderPdf(container) {
   var pdfUrl = container.dataset.pdf;
@@ -165,45 +200,83 @@ function renderPdf(container) {
   container.innerHTML = '<div class="pdf-loading">📄 PDF加载中…</div>';
 
   if (!window.pdfjsLib) {
-    container.innerHTML = '<div class="pdf-loading" style="color:var(--red);">⚠️ PDF.js库加载失败，请检查网络连接<br>您可以使用上方下载按钮下载PDF查看</div>';
+    container.innerHTML = '<div class="pdf-loading" style="color:#ff6a00;">⚠️ PDF.js库加载失败，请检查网络连接<br>您可以使用上方下载按钮下载PDF查看</div>';
     return;
   }
 
   var loadingTask = pdfjsLib.getDocument(pdfUrl);
   loadingTask.promise.then(function(pdf) {
+    // 创建工具栏
     container.innerHTML = '';
+    var toolbar = document.createElement('div');
+    toolbar.className = 'pdf-toolbar';
+    toolbar.innerHTML = '<span>📄 共 ' + pdf.numPages + ' 页</span><span class="page-info">高清渲染中…</span>';
+    container.appendChild(toolbar);
+
+    // 创建页面容器
+    var wrapper = document.createElement('div');
+    wrapper.className = 'pdf-pages-wrapper';
+    container.appendChild(wrapper);
+
+    var renderedCount = 0;
 
     function renderPage(num) {
       pdf.getPage(num).then(function(page) {
-        var containerWidth = container.clientWidth - 20;
-        var viewport = page.getViewport({ scale: 1 });
-        var scale = containerWidth / viewport.width;
-        var scaledViewport = page.getViewport({ scale: scale });
+        // 计算高分辨率渲染参数
+        var containerWidth = container.clientWidth;
+        if (containerWidth < 100) containerWidth = 1200; // 防止容器宽度为0
+        var baseViewport = page.getViewport({ scale: 1 });
+        var displayScale = containerWidth / baseViewport.width;
+        var renderScaleVal = displayScale * RENDER_SCALE;
+
+        // 渲染用高分辨率viewport
+        var renderViewport = page.getViewport({ scale: renderScaleVal });
+
+        var pageDiv = document.createElement('div');
+        pageDiv.className = 'pdf-page-wrapper';
+        pageDiv.style.width = (baseViewport.width * displayScale) + 'px';
 
         var canvas = document.createElement('canvas');
         var ctx = canvas.getContext('2d');
-        canvas.width = scaledViewport.width;
-        canvas.height = scaledViewport.height;
-        container.appendChild(canvas);
+        canvas.width = renderViewport.width;
+        canvas.height = renderViewport.height;
+        // CSS显示尺寸 = 容器宽度，但canvas内部分辨率是2倍
+        canvas.style.width = (baseViewport.width * displayScale) + 'px';
+        canvas.style.height = 'auto';
+        pageDiv.appendChild(canvas);
+
+        // 页码标识
+        var pageNum = document.createElement('div');
+        pageNum.className = 'pdf-page-num';
+        pageNum.textContent = num + ' / ' + pdf.numPages;
+        pageDiv.appendChild(pageNum);
+
+        wrapper.appendChild(pageDiv);
 
         var renderContext = {
           canvasContext: ctx,
-          viewport: scaledViewport
+          viewport: renderViewport
         };
         page.render(renderContext).promise.then(function() {
+          renderedCount++;
+          if (toolbar.querySelector('.page-info')) {
+            toolbar.querySelector('.page-info').textContent = '已渲染 ' + renderedCount + '/' + pdf.numPages + ' 页';
+          }
           if (num < pdf.numPages) {
             renderPage(num + 1);
+          } else {
+            toolbar.querySelector('.page-info').textContent = '✅ 全部 ' + pdf.numPages + ' 页已加载';
           }
         });
       });
     }
     renderPage(1);
   }).catch(function(error) {
-    container.innerHTML = '<div class="pdf-loading" style="color:var(--red);">⚠️ PDF加载失败<br>请使用上方下载按钮下载查看</div>';
+    container.innerHTML = '<div class="pdf-loading" style="color:#ff6a00;">⚠️ PDF加载失败<br>请使用上方下载按钮下载查看</div>';
   });
 }
 
-// 使用 IntersectionObserver 实现PDF懒加载（进入视口时才渲染）
+// 使用 IntersectionObserver 实现PDF懒加载
 var pdfObserver = new IntersectionObserver(function(entries) {
   entries.forEach(function(entry) {
     if (entry.isIntersecting) {
@@ -211,9 +284,8 @@ var pdfObserver = new IntersectionObserver(function(entries) {
       pdfObserver.unobserve(entry.target);
     }
   });
-}, { rootMargin: '100px' });
+}, { rootMargin: '150px' });
 
-// 初始化：监听所有PDF容器
 function initPdfObservers() {
   document.querySelectorAll('.pdf-canvas-container').forEach(function(container) {
     pdfObserver.observe(container);
@@ -228,12 +300,11 @@ function switchTab(tab) {
   document.getElementById('panel-jacket').classList.toggle('hidden', tab !== 'jacket');
   document.getElementById('panel-shirt').classList.toggle('hidden', tab !== 'shirt');
   window.scrollTo({ top: 0, behavior: 'smooth' });
-  // 切换tab后重新检查可见的PDF并渲染
   setTimeout(function() {
     document.querySelectorAll('.pdf-canvas-container').forEach(function(container) {
       if (container.offsetParent !== null) {
         var rect = container.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
+        if (rect.top < window.innerHeight + 200 && rect.bottom > -200) {
           renderPdf(container);
         }
       }
@@ -250,7 +321,6 @@ document.querySelectorAll('.plan-nav a').forEach(function(link) {
     var target = document.getElementById(link.dataset.target);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // 滚动后渲染对应的PDF
       setTimeout(function() {
         var container = target.querySelector('.pdf-canvas-container');
         if (container) {
@@ -261,7 +331,6 @@ document.querySelectorAll('.plan-nav a').forEach(function(link) {
   });
 });
 
-// 页面加载完成后初始化PDF观察器
 document.addEventListener('DOMContentLoaded', initPdfObservers);
 
 var footer = document.createElement('footer');
