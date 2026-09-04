@@ -74,7 +74,7 @@ function renderVisPdf() {
     return;
   }
 
-  var loadingTask = pdfjsLib.getDocument(pdfUrl);
+  var loadingTask = pdfjsLib.getDocument(encodeURI(pdfUrl));
   loadingTask.promise.then(function(pdf) {
     container.innerHTML = '';
 
@@ -278,7 +278,10 @@ function renderLatestPdf(pdfUrl) {
     return;
   }
 
-  var loadingTask = pdfjsLib.getDocument(pdfUrl);
+  // 对URL中的非ASCII字符进行编码，防止中文路径加载失败
+  var encodedUrl = encodeURI(pdfUrl);
+
+  var loadingTask = pdfjsLib.getDocument(encodedUrl);
   loadingTask.promise.then(function(pdf) {
     container.innerHTML = '';
 
