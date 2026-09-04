@@ -78,6 +78,28 @@ a:hover { color: var(--primary-hover); }
   padding: 0 0 8px 50px; line-height: 1.2; opacity: 0.8; margin-top: -4px;
 }
 
+/* New标签闪烁动画 */
+@keyframes newBlink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* 最新款式资讯列表 */
+.latest-info-list { display: flex; flex-direction: column; gap: 10px; }
+.latest-info-item {
+  display: flex; align-items: center; gap: 14px; padding: 16px 20px;
+  background: var(--card); border: 2px solid var(--border); border-radius: 10px;
+  cursor: pointer; transition: all .2s; position: relative;
+}
+.latest-info-item:hover { border-color: var(--primary); box-shadow: var(--shadow-hover); transform: translateX(4px); }
+.latest-info-item.active { border-color: var(--primary); background: var(--primary-light); }
+.latest-item-icon { font-size: 24px; flex-shrink: 0; }
+.latest-item-content { flex: 1; }
+.latest-item-title { font-size: 16px; font-weight: 700; color: var(--text); }
+.latest-item-date { font-size: 12px; color: var(--muted); margin-top: 2px; }
+.latest-item-arrow { color: var(--primary); font-size: 14px; transition: transform .2s; }
+.latest-info-item:hover .latest-item-arrow { transform: translateX(4px); }
+
 /* ==================== 主内容区 ==================== */
 .main-content {
   margin-left: var(--sidebar-w); margin-top: var(--nav-h);

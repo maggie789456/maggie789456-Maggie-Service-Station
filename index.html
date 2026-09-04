@@ -37,6 +37,7 @@
     <li><a data-target="sec-plan"><span class="nav-icon">📚</span> 企划需求</a></li>
     <li><a data-target="sec-top"><span class="nav-icon">🔥</span> 去年热销</a></li>
     <li><a data-target="sec-info"><span class="nav-icon">📢</span> 近期资讯</a></li>
+    <li><a data-target="sec-latest"><span class="nav-icon">🆕</span> 最新款式资讯<span style="background:#d93025;color:#fff;font-size:9px;padding:1px 5px;border-radius:8px;margin-left:4px;animation:newBlink 1.5s infinite;">New</span></a><span class="nav-update-tag">最近更新</span></li>
   </ul>
 </nav>
 
@@ -155,6 +156,41 @@
       <div class="info-card">
         <h3>📣 近期通知</h3>
         <div class="info-content" id="notices">加载中...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== 模块8：最新款式资讯 ==================== -->
+  <section class="section" id="sec-latest">
+    <div class="section-header">
+      <h2><span class="sec-icon">🆕</span> 最新款式资讯 <span style="background:#d93025;color:#fff;font-size:11px;padding:2px 8px;border-radius:10px;animation:newBlink 1.5s infinite;">New</span></h2>
+      <p>点击标题查看PDF详情 · 持续更新中</p>
+    </div>
+    <div class="latest-info-list" id="latest-info-list">
+      <div class="latest-info-item" onclick="showLatestPdf('assets/pdf/9月图案胚衣拓展.pdf', this)">
+        <div class="latest-item-icon">📄</div>
+        <div class="latest-item-content">
+          <div class="latest-item-title">9月图案胚衣拓展</div>
+          <div class="latest-item-date">2025年9月</div>
+        </div>
+        <div class="latest-item-arrow">▶</div>
+      </div>
+      <div class="latest-info-item" onclick="showLatestPdf('assets/pdf/男装圣诞节主要元素.pdf', this)">
+        <div class="latest-item-icon">📄</div>
+        <div class="latest-item-content">
+          <div class="latest-item-title">男装圣诞节主要元素</div>
+          <div class="latest-item-date">2025年9月</div>
+        </div>
+        <div class="latest-item-arrow">▶</div>
+      </div>
+    </div>
+    <div id="latest-pdf-area" class="hidden" style="margin-top:20px;">
+      <div class="card" style="padding:20px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+          <h3 id="latest-pdf-title" style="color:var(--primary);">📄 资讯详情</h3>
+          <a id="latest-pdf-download" class="pdf-download-btn" download style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;font-size:14px;color:#fff;background:var(--primary);border:none;border-radius:6px;cursor:pointer;text-decoration:none;">⬇️ 下载PDF</a>
+        </div>
+        <div id="latest-pdf-canvas-container" class="pdf-canvas-container" data-pdf="" style="width:100%;background:#525659;border-radius:10px;box-shadow:var(--shadow);min-height:300px;overflow:hidden;position:relative;"><div class="pdf-loading" style="display:flex;align-items:center;justify-content:center;height:300px;color:#ccc;font-size:15px;">📄 点击标题查看PDF</div></div>
       </div>
     </div>
   </section>
